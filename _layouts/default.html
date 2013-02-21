@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en-us" class="{% if page.url == '/resume/index.html' %}inner resume{% else if page.url != '/index.html' %}inner{% else %}home{% endif %}">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<title dir="ltr">{% if page.url == '/index.html' %}{% else %}{% if page.title %}{{ page.title }}{% endif %}{% endif %}</title>
+	<meta name="description" content="" />
+	
+	<link rel="shortcut icon" type="image/x-icon" href="http://jefff.co//images/favicon.ico" />
+	<link rel="author" href="http://jefff.co//humans.txt" />
+	
+	<link href='http://fonts.googleapis.com/css?family=Domine:400,700|Arimo:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+	<link href="/stylesheets/app.css" rel="stylesheet" type="text/css" />
+	
+	<script src="/javascripts/modernizr.js"></script>
+
+</head>
+<body>
+	
+	<!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+	<script src="/javascripts/app.js"></script>
+</body>
+</html>
