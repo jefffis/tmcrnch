@@ -1,37 +1,16 @@
-<!doctype html>
-<html lang="en-us">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-	<title dir="ltr">Timecrun.ch</title>
-	<meta name="description" content="" />
-	
-	<link href="stylesheets/app.css" rel="stylesheet" type="text/css" />
-	
-	<script type="text/javascript">
-
-	/*var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-22790184-1']);
-	_gaq.push(['_trackPageview']);
-
-	(function() {
-	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' :'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();*/
-
-	</script>
-
+  <title>Timecrun.ch</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
-	<header role="banner">
-		<!--<h2 data-icon="☁"><a href="/"><span>made by</span> jefff</a></h2>-->
-		<h2 data-icon="☁">Timecrun.ch</h2>
-	</header>
-	<div role="main">
-		<form action="" method="" id="form">
+
+<%= yield %>
+
+<form action="" method="" id="form">
 			<fieldset>
 				<label for="email_1">First Email Address
 					<input type="email" name="email_1" id="email_1" placeholder="First Email Address" />
@@ -82,12 +61,6 @@
 				<input type="submit" name="submit" id="submit" value="Send It On" />
 			</fieldset>
 		</form>
-	</div>
-	<footer>
-		
-	</footer>
-	<script src="javascripts/modernizr.js"></script>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="javascripts/app.js"></script>
+
 </body>
 </html>
