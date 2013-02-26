@@ -120,7 +120,21 @@ fieldset .clr {
 fieldset em {
 	font-style:normal;
 	display:inline-block;
-	padding:1em 0 0;
+	padding:1em 0 0 1.45em;
+	position:relative;
+}
+fieldset em:before {
+	content:"✉";
+	display:inline;
+	position:absolute;
+	font-size:30px;
+	padding:0 0 0 5px;
+	line-height:1;
+	left:-.25em;
+	top:.35em;
+}
+fieldset em span {
+	display:none;
 }
 fieldset em:active, .rdo span:active {
 	opacity:.75;
@@ -257,5 +271,8 @@ input[type=submit]:focus {
 	}
 	input[type=email] {
 		width:auto;
+	}
+	fieldset em span {
+		display:inline;
 	}
 }
