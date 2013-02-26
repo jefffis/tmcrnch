@@ -1,8 +1,4 @@
 if (Modernizr.localstorage) {
-	
-	$(function(){
-
-	});
 
 	var form = $('#form');
 
@@ -20,16 +16,23 @@ if (Modernizr.localstorage) {
 
 	var submit = $('#submit');
 
+	// email 1
 	email_1.on('change',function(){
 		localStorage.setItem('email_1',email_1.val());
 		submit.prop('disabled',false);
+		//email_1_clear.css('display','block');
+	});
+	email_1.on('blur',function(){
 		if(email_1.val()==''){
-			email_1_clear.css('display','none');
+			$(this).addClass('bad').removeClass('good');
+		}else if(validateEmail(email_1.val())){
+			$(this).removeClass('bad').addClass('good');
+			$(this).parent().addClass('good');
 		}else{
-			email_1_clear.css('display','block');	
+			$(this).addClass('bad');
+			$(this).parent().removeClass('good');
 		}
 	});
-
 	email_1_clear.on('click',function(){
 		localStorage.setItem('email_1','');
 		email_1.val('');
@@ -37,10 +40,22 @@ if (Modernizr.localstorage) {
 	});
 	email_1.val(localStorage.getItem('email_1'));
 	
+	// email 2
 	email_2.on('change',function(){
 		localStorage.setItem('email_2',email_2.val());
 		submit.prop('disabled',false);
-		email_2_clear.css('display','block');
+		//email_2_clear.css('display','block');
+	});
+	email_2.on('blur',function(){
+		if(email_2.val()==''){
+			$(this).removeClass('bad');
+		}else if(validateEmail(email_2.val())){
+			$(this).removeClass('bad').addClass('good');
+			$(this).parent().addClass('good');
+		}else{
+			$(this).addClass('bad');
+			$(this).parent().removeClass('good');
+		}
 	});
 	email_2_clear.on('click',function(){
 		localStorage.setItem('email_2','');
@@ -49,10 +64,22 @@ if (Modernizr.localstorage) {
 	});
 	email_2.val(localStorage.getItem('email_2'));
 
+	// email 3
 	email_3.on('change',function(){
 		localStorage.setItem('email_3',email_3.val());
 		submit.prop('disabled',false);
-		email_3_clear.css('display','block');
+		//email_3_clear.css('display','block');
+	});
+	email_3.on('blur',function(){
+		if(email_3.val()==''){
+			$(this).removeClass('bad');
+		}else if(validateEmail(email_3.val())){
+			$(this).removeClass('bad').addClass('good');
+			$(this).parent().addClass('good');
+		}else{
+			$(this).addClass('bad');
+			$(this).parent().removeClass('good');
+		}
 	});
 	email_3_clear.on('click',function(){
 		localStorage.setItem('email_3','');
@@ -67,7 +94,10 @@ if (Modernizr.localstorage) {
 
 	form.on('submit',function(){
 	
-		if((message_type.filter(':checked').length==0)){
+
+
+
+		if((message_type.filter(':checked').length==0)||(email_1.hasClass('bad'))||(email_2.hasClass('bad'))||(email_3.hasClass('bad'))){
 			return false;
 		}else{
 			
@@ -83,6 +113,11 @@ if (Modernizr.localstorage) {
 
 		}
 	});
+
+	function validateEmail(email) { 
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email);
+	}
 
 } else {
 	alert('Sorry, get a better browser pal.');

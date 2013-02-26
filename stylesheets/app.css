@@ -66,7 +66,7 @@ form * {
 }
 form div {
 	/*border:3px solid rgba(0,0,0,0.25);*/
-	padding:4px;
+	padding:4px 4px 3px;
 	background:rgba(0,0,0,0.25);
 	/*background: #794002;
 	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#794002), to(#8b5316));
@@ -142,10 +142,31 @@ input[type=email] {
 	margin:.5em 0;
 	outline:none;
 	background:none;
+	width:10em;
 }
 input[type=email]:focus {
 	/*outline:1px dotted #1caffc;*/
 	background:rgba(28,175,252,0.25);
+}
+input[type=email].bad {
+	background:rgba(255,0,0,0.25);
+}
+input[type=email].good {
+	background:rgba(0,255,255,0.25);
+}
+label.good:before {
+	content:"\2713";
+	display:block;
+	height:20px;
+	width:20px;
+	color:#689d42;
+	font-size:30px;
+	border-radius:100%;
+	position:relative;
+	top:8px;
+	left:-2px;
+	margin:0 8px 0 0;
+	float:left;
 }
 input[type=radio] {
 	display:none;
@@ -159,12 +180,12 @@ input[type=radio] {
 .rdo span:before {
 	content:"";
 	display:block;
-	width:17px;
-	height:17px;
+	width:20px;
+	height:20px;
 	background:white;
 	border:2px solid #d26b28;
 	margin:3px auto;
-	font-size:14px;
+	font-size:16px;
 	line-height:1.25;
 	text-align:center;
 	color:#d26b28;
@@ -202,12 +223,16 @@ input[type=submit] {
 	line-height:1;
 	text-shadow:0 -1px 0 rgba(0,0,0,0.5);
 	font-weight:bold;
+	outline:none;
 }
 input[type=submit]:active {
 	padding:1.05em 1em .95em;
 	background:#107cb4;
 	color:#b6d6e6;
 	box-shadow:0 1px 3px rgba(0,0,0,0.35) inset;
+}
+input[type=submit]:focus {
+	/* define something */
 }
 
 @media screen and (min-width:38em) {
@@ -220,7 +245,7 @@ input[type=submit]:active {
 	}
 	.rdo span:before {
 		float:left;
-		margin:3px 8px 0 0;
+		margin:1px 8px 0 0;
 	}
 	fieldset .clr {
 		right:-3.5em;
@@ -229,5 +254,8 @@ input[type=submit]:active {
 	.clr:after {
 		color:white;
 		text-shadow:0 1px 0 rgba(0,0,0,0.15), 1px 2px 1px rgba(0,0,0,0.1), 2px 3px 2px rgba(0,0,0,0.05);
+	}
+	input[type=email] {
+		width:auto;
 	}
 }
