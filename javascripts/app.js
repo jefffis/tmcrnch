@@ -106,6 +106,11 @@ $(function(){
 		$('.errored.type').removeClass('show');
 	});
 
+	message_type.on('click',function(){
+		sam_message_type.removeClass('checked');
+		$(this).next('span').addClass('checked');
+	});
+
 	form.on('submit',function(){
 		if((message_type.filter(':checked').length==0)||(email_1.hasClass('bad'))||(email_2.hasClass('bad'))||(email_3.hasClass('bad'))||(email_1.val()=='')){
 			if(message_type.filter(':checked').length==0){
@@ -113,6 +118,7 @@ $(function(){
 			}
 			if(email_1.val()==''){
 				email_1.addClass('bad');
+				email_1.focus();
 			}
 			if(email_1.val()!=''){
 				$('.errored.first').removeClass('show');
@@ -128,8 +134,17 @@ $(function(){
 		        type: $(this).attr('method'),
 		        url: $(this).attr('action'),
 		        success: function(response) {
-		            alert('funky');
+		            //alert('funky');
+					setTimeout(function(){
+						form.find('div').css('opacity',1);
+						$('.submitted').removeClass('show');
+					}, 1000);
 		        }
+		        /*error: function(response) {
+					form.find('div').css('opacity',1);
+					$('.submitted').removeClass('show');
+					alert('Errored.');
+		        }*/
 		    });
 		    return false;
 		}

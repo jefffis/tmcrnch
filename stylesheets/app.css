@@ -233,6 +233,7 @@ input[type=radio] {
 }
 .rdo span {
 	line-height:1.5;
+	display:block;
 }
 .rdo span:before {
 	content:"\2718";
@@ -243,10 +244,10 @@ input[type=radio] {
 	border:2px solid #d26b28;
 	margin:3px auto;
 	font-size:16px;
-	line-height:1.25;
+	line-height:1.15;
 	text-align:center;
 	color:white;
-	border-radius:100%;
+	/*border-radius:50px;*/
 }
 .rdo span:after, .rdo a {
 	content:"View";
@@ -267,7 +268,7 @@ input[type=radio] {
 	width:3.5em;
 	text-align:center;
 }
-.rdo input[type=radio]:checked + span:before {
+.rdo input[type=radio]:checked + span:before, .rdo span.checked:before {
 	color:#107cb4;
 	border:2px solid #107cb4;
 	background:rgba(0,255,255,0.25);
@@ -303,7 +304,7 @@ input[type=submit]:focus {
 	/* define something */
 }
 
-.errored {
+.errored, .rdo .errored {
 	color:red;
 	font-weight:bold;
 	display:none;
