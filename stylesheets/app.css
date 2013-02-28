@@ -45,6 +45,7 @@ h2 { font-size:2em; margin:0; }
 h3 { font-size:1.5em; }
 
 header {
+	padding:2em 0 0;
 	text-align:center;
 	text-shadow:0 1px 0 rgba(0,0,0,0.15), 1px 2px 1px rgba(0,0,0,0.1), 2px 3px 2px rgba(0,0,0,0.05);
 }
@@ -55,15 +56,35 @@ header {
 
 form {
 	padding:1em;
+	position:relative;
 }
 form * {
 	border:0;
 	padding:0;
 	margin:0;
-	color:#666;
+	color:#333;
 	font:100%/1.5 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 	line-height:1.25;
 }
+
+.nope {
+	display:none;
+}
+.no-loc .nope {
+	display:block;
+}
+.no-loc form p {
+	color:white;
+	margin:0 0 1em;
+	padding:1em;
+	background:rgba(255,255,0,0.25);
+	text-shadow:0 1px 0 rgba(0,0,0,0.15), 1px 2px 1px rgba(0,0,0,0.1), 2px 3px 2px rgba(0,0,0,0.05);
+}
+.no-loc form strong {
+	color:white;
+	font-weight:bold;
+}
+
 form div {
 	/*border:3px solid rgba(0,0,0,0.25);*/
 	padding:4px 4px 3px;
@@ -77,6 +98,26 @@ form div {
 	background: linear-gradient(#794002, #8b5316);*/
 	box-shadow:0 1px 0 rgba(0,0,0,0.25) inset;
 	border-radius:5px;
+}
+.submitted {
+	display:none;
+	height:100%;
+	width:100%;
+	background:none;
+	position:absolute;
+	top:50%;
+	left:0;
+}
+.submitted img {
+	display:block;
+	margin:0 auto;
+	background:white;
+	padding:2px;
+	border-radius:100%;
+	box-shadow:0 1px 1px rgba(0,0,0,0.2), 0 0 3px rgba(0,0,0,0.1);
+}
+.submitted.show {
+	display:block;
 }
 fieldset {
 	background:white;
@@ -120,21 +161,21 @@ fieldset .clr {
 fieldset em {
 	font-style:normal;
 	display:inline-block;
-	padding:1em 0 0 1.45em;
+	padding:1em 0 0 0;
 	position:relative;
 }
-fieldset em:before {
+fieldset em:after {
 	content:"✉";
 	display:inline;
 	position:absolute;
 	font-size:30px;
-	padding:0 0 0 5px;
+	padding:0 0 0 50px;
 	line-height:1;
-	left:-.25em;
 	top:.35em;
+	display:none;
 }
 fieldset em span {
-	display:none;
+	display:;
 }
 fieldset em:active, .rdo span:active {
 	opacity:.75;
@@ -166,21 +207,23 @@ input[type=email].bad {
 	background:rgba(255,0,0,0.25);
 }
 input[type=email].good {
-	background:rgba(0,255,255,0.25);
+	/*background:rgba(0,255,255,0.25);*/
+	color:#107cb4;
 }
-label.good:before {
+label.good:after {
 	content:"\2713";
-	display:block;
+	display:none;
 	height:20px;
 	width:20px;
-	color:#689d42;
+	color:white;
 	font-size:30px;
 	border-radius:100%;
-	position:relative;
+	position:absolute;
 	top:8px;
-	left:-2px;
+	right:-1.5em;
 	margin:0 8px 0 0;
-	float:left;
+	text-shadow:0 1px 0 rgba(0,0,0,0.15), 1px 2px 1px rgba(0,0,0,0.1), 2px 3px 2px rgba(0,0,0,0.05);
+	opacity:.5;
 }
 input[type=radio] {
 	display:none;
@@ -192,7 +235,7 @@ input[type=radio] {
 	line-height:1.5;
 }
 .rdo span:before {
-	content:"";
+	content:"\2718";
 	display:block;
 	width:20px;
 	height:20px;
@@ -202,22 +245,32 @@ input[type=radio] {
 	font-size:16px;
 	line-height:1.25;
 	text-align:center;
-	color:#d26b28;
+	color:white;
 	border-radius:100%;
 }
-.rdo span:after {
+.rdo span:after, .rdo a {
 	content:"View";
 	display:none;
 	float:right;
-	background: #d26b28;
 	padding:.25em .5em;
 	font-size:80%;
 	text-transform:uppercase;
 	color:white;
 	border-radius:2px;
 }
+.rdo a {
+	display:none;
+	background:#d26b28;
+	text-decoration:none;
+	float:none;
+	margin:.25em auto 0;
+	width:3.5em;
+	text-align:center;
+}
 .rdo input[type=radio]:checked + span:before {
-	content:"\2718";
+	color:#107cb4;
+	border:2px solid #107cb4;
+	background:rgba(0,255,255,0.25);
 }
 input[type=submit] {
 	padding:1em;
@@ -236,6 +289,7 @@ input[type=submit] {
 	height:3.5em;
 	line-height:1;
 	text-shadow:0 -1px 0 rgba(0,0,0,0.5);
+	font-size:125%;
 	font-weight:bold;
 	outline:none;
 }
@@ -249,7 +303,29 @@ input[type=submit]:focus {
 	/* define something */
 }
 
-@media screen and (min-width:38em) {
+.errored {
+	color:red;
+	font-weight:bold;
+	display:none;
+	padding:0 0 1em;
+}
+.errored.first {
+	padding-top:1em;
+}
+.errored.show {
+	display:block;
+}
+.rdo .errored:before {
+	display:none;
+}
+
+@media screen and (min-height:37em) {
+	header {
+		padding-top:0;
+	}
+}
+
+@media screen and (min-width:33em) {
 	[role=main] {
 		width:33em;
 		margin:0 auto;
@@ -272,7 +348,14 @@ input[type=submit]:focus {
 	input[type=email] {
 		width:auto;
 	}
-	fieldset em span {
-		display:inline;
+	label.good:after {
+		display:block;
 	}
+	.rdo a {
+		float:right;
+		margin:0;
+	}
+	/*fieldset em span {
+		display:inline;
+	}*/
 }

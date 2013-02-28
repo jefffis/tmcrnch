@@ -29,44 +29,52 @@
 <body>
 	<header role="banner">
 		<!--<h2 data-icon="☁"><a href="/"><span>made by</span> jefff</a></h2>-->
-		<h2 data-icon="☁">Timecrun.ch</h2>
+		<h2 data-icon="☁">Timecrn.ch</h2>
 	</header>
 	<div role="main">
 		<form action="sent.php" method="post" id="form">
+			<span class="nope">
+				<p>Shucks, localStorage doesn&rsquo;t work with your browser. What that means is <strong>none of the email addresses you enter here will be stored. So basically, if you love this service, you&rsquo;ll need to re-enter these each time you use it.</strong> Or just use a more modern browser. Peace.</p>
+			</span>
 			<div>
 				<fieldset>
+					<span class="errored first">Please enter at least one email address:</span>
 					<label for="email_1">
-						<em>First <span>Email</span></em>
-						<input type="email" name="email_1" id="email_1" placeholder="First Email" />
+						<em>1st <span>Email</span></em>
+						<input type="email" name="email_1" id="email_1" placeholder="Enter Email" />
 						<span class="clr">Clear Out</span>
 					</label>
 				</fieldset>
 				<fieldset>
 					<label for="email_2">
-						<em>Second <span>Email</span></em>
-						<input type="email" name="email_2" id="email_2" placeholder="Second Email" />
+						<em>2nd <span>Email</span></em>
+						<input type="email" name="email_2" id="email_2" placeholder="Enter Email" />
 						<span class="clr">Clear Out</span>
 					</label>
 				</fieldset>
 				<fieldset>
 					<label for="email_3">
-						<em>Third <span>Email</span></em>
-						<input type="email" name="email_3" id="email_3" placeholder="Third Email" />
+						<em>3rd <span>Email</span></em>
+						<input type="email" name="email_3" id="email_3" placeholder="Enter Email" />
 						<span class="clr">Clear Out</span>
 					</label>
 				</fieldset>
 				<fieldset class="rdo">
+					<span class="errored type">Please choose one message type to send:</span>
 					<label for="message_type_1">
 						<input type="radio" name="message_type" id="message_type_1" />
-						<span>I&rsquo;m stuck in traffic, gonna be a bit late.</span>
+						<span data-src="##">I&rsquo;m stuck in traffic, gonna be a bit late.</span>
+						<a href="">View</a>
 					</label>
 					<label for="message_type_2">
 						<input type="radio" name="message_type" id="message_type_2" />
-						<span>I&rsquo;m stuck on the subway, gonna be a bit late.</span>
+						<span data-src="##">I&rsquo;m stuck on the subway, gonna be a bit late.</span>
+						<a href="">View</a>
 					</label>
 					<label for="message_type_3">
 						<input type="radio" name="message_type" id="message_type_3" />
-						<span>I&rsquo;m stuck on the subway, gonna be a bit late.</span>
+						<span data-src="##">I&rsquo;m stuck on the subway, gonna be a bit late.</span>
+						<a href="">View</a>
 					</label>
 				</fieldset>
 				<!--<fieldset class="rdo">
@@ -87,6 +95,9 @@
 					<input type="submit" name="submit" id="submit" value="Send It On" />
 				</fieldset>
 			</div>
+			<span class="submitted">
+				<img src="images/load.gif" />
+			</span>
 		</form>
 	</div>
 	<footer>
