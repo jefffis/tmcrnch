@@ -28,8 +28,7 @@
 </head>
 <body>
 	<header role="banner">
-		<!--<h2 data-icon="☁"><a href="/"><span>made by</span> jefff</a></h2>-->
-		<h2 data-icon="☁">Timecrn.ch</h2>
+		<h2>Tmcr<span>⌚</span>nch</h2>
 	</header>
 	<div role="main">
 		<form action="sent.php" method="post" id="form">
@@ -37,63 +36,77 @@
 				<p>Shucks, localStorage doesn&rsquo;t work with your browser. What that means is <strong>none of the email addresses you enter here will be stored. So basically, if you love this service, you&rsquo;ll need to re-enter these each time you use it.</strong> Or just use a more modern browser. Peace.</p>
 			</span>
 			<div>
-				<fieldset>
-					<span class="errored first">Please enter at least one email address:</span>
-					<label for="email_1">
-						<em>1st <span>Email</span></em>
-						<input type="email" name="email_1" id="email_1" placeholder="Enter Email" />
-						<span class="clr">Clear Out</span>
-					</label>
-				</fieldset>
-				<fieldset>
-					<label for="email_2">
-						<em>2nd <span>Email</span></em>
-						<input type="email" name="email_2" id="email_2" placeholder="Enter Email" />
-						<span class="clr">Clear Out</span>
-					</label>
-				</fieldset>
-				<fieldset>
-					<label for="email_3">
-						<em>3rd <span>Email</span></em>
-						<input type="email" name="email_3" id="email_3" placeholder="Enter Email" />
-						<span class="clr">Clear Out</span>
-					</label>
-				</fieldset>
-				<fieldset class="rdo">
-					<span class="errored type">Please choose one message type to send:</span>
-					<label for="message_type_1">
-						<input type="radio" name="message_type" id="message_type_1" />
-						<span data-src="##">I&rsquo;m stuck in traffic, gonna be a bit late.</span>
-						<a href="">View</a>
-					</label>
-					<label for="message_type_2">
-						<input type="radio" name="message_type" id="message_type_2" />
-						<span data-src="##">I&rsquo;m stuck on the subway, gonna be a bit late.</span>
-						<a href="">View</a>
-					</label>
-					<label for="message_type_3">
-						<input type="radio" name="message_type" id="message_type_3" />
-						<span data-src="##">I&rsquo;m stuck on the subway, gonna be a bit late.</span>
-						<a href="">View</a>
-					</label>
-				</fieldset>
-				<!--<fieldset class="rdo">
-					<label for="message_template_1">
-						<input type="radio" name="message_template" id="message_template_1" />
-						<span>message_template_1</span>
-					</label>
-					<label for="message_template_2">
-						<input type="radio" name="message_template" id="message_template_2" />
-						<span>message_template_2</span>
-					</label>
-					<label for="message_template_3">
-						<input type="radio" name="message_template" id="message_template_3" />
-						<span>message_template_3</span>
-					</label>
-				</fieldset>-->
-				<fieldset>
-					<input type="submit" name="submit" id="submit" value="Send It On" />
-				</fieldset>
+				<span>
+					<fieldset>
+						<span class="errored first">Please enter at least one email address:</span>
+						<label for="email_1">
+							<em>1st <span>Email</span></em>
+							<input type="email" name="email_1" id="email_1" placeholder="Enter Email" />
+							<span class="clr">Clear Out</span>
+						</label>
+					</fieldset>
+					<fieldset>
+						<label for="email_2">
+							<em>2nd <span>Email</span></em>
+							<input type="email" name="email_2" id="email_2" placeholder="Enter Email" />
+							<span class="clr">Clear Out</span>
+						</label>
+					</fieldset>
+					<fieldset>
+						<label for="email_3">
+							<em>3rd <span>Email</span></em>
+							<input type="email" name="email_3" id="email_3" placeholder="Enter Email" />
+							<span class="clr">Clear Out</span>
+						</label>
+					</fieldset>
+					<fieldset>
+						<span class="errored yours">Please enter at your email address:</span>
+						<label for="email_4">
+							<em>Your <span>Email</span></em>
+							<input type="email" name="email_4" id="email_4" placeholder="Your Email" />
+							<span class="clr">Clear Out</span>
+						</label>
+					</fieldset>
+					<fieldset class="rdo">
+						<span class="errored type">Please choose one message type to send:</span>
+						<label for="message_type_1">
+							<input type="radio" name="message_type" id="message_type_1" value="1" />
+							<span data-src="##">I&rsquo;m stuck in traffic, gonna be a bit late.</span>
+							<a href="">View</a>
+						</label>
+						<label for="message_type_2">
+							<input type="radio" name="message_type" id="message_type_2" value="2" />
+							<span data-src="##">I&rsquo;m stuck on the subway, gonna be a bit late.</span>
+							<a href="">View</a>
+						</label>
+						<label for="message_type_3">
+							<input type="radio" name="message_type" id="message_type_3" value="3" />
+							<span data-src="##">I&rsquo;m running late at an appointment.</span>
+							<a href="">View</a>
+						</label>
+					</fieldset>
+					<!--<fieldset class="rdo">
+						<label for="message_template_1">
+							<input type="radio" name="message_template" id="message_template_1" />
+							<span>message_template_1</span>
+						</label>
+						<label for="message_template_2">
+							<input type="radio" name="message_template" id="message_template_2" />
+							<span>message_template_2</span>
+						</label>
+						<label for="message_template_3">
+							<input type="radio" name="message_template" id="message_template_3" />
+							<span>message_template_3</span>
+						</label>
+					</fieldset>-->
+					<fieldset>
+						<input type="submit" name="submit" id="submit" value="Send It On" />
+					</fieldset>
+				</span>
+				<span class="confirm">
+					<h2>Sweet; thanks for using our little service.</h2>
+					<p>Tell yer friends about it if you dig it pls.</p>
+				</span>
 			</div>
 			<span class="submitted">
 				<img src="images/load.gif" />
@@ -101,7 +114,7 @@
 		</form>
 	</div>
 	<footer>
-		
+		<h3>made by <a href="http://jefff.co/" target="_blank">jefff</a></h3>
 	</footer>
 	<script src="javascripts/modernizr.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>

@@ -10,6 +10,8 @@ var email_2_clear = email_2.next('span');
 var email_3 = $('#email_3');
 var email_3_clear = email_3.next('span');
 
+var email_4 = $('#email_4');
+
 var message_type = $('input[name=message_type]');
 var message_template = $('input[name=message_template]');
 
@@ -97,10 +99,35 @@ $(function(){
 		email_3_clear.css('display','none');
 	});
 	email_3.val(localStorage.getItem('email_3'));
+	
+	// email 4
+	email_4.on('change',function(){
+		localStorage.setItem('email_4',email_4.val());
+		submit.prop('disabled',false);
+		//email_1_clear.css('display','block');
+	});
+	email_4.on('blur',function(){
+		if(email_4.val()==''){
+			$(this).addClass('bad').removeClass('good');
+		}else if(validateEmail(email_4.val())){
+			$(this).removeClass('bad').addClass('good');
+			$(this).parent().addClass('good');
+			$('.errored.yours').removeClass('show');
+		}else{
+			$(this).addClass('bad');
+			$(this).parent().removeClass('good');
+		}
+	});
+	email_4.on('click',function(){
+		localStorage.setItem('email_4','');
+		email_4.val('');
+		email_4_clear.css('display','none');
+	});
+	email_4.val(localStorage.getItem('email_4'));
 
-	if((email_1.val()=='') && (email_2.val()=='') && (email_3.val()=='')){
-		//submit.prop('disabled',true);
-	}
+	/*if((email_1.val()=='') && (email_2.val()=='') && (email_3.val()=='')){
+		submit.prop('disabled',true);
+	}*/
 
 	message_type.on('change',function(){
 		$('.errored.type').removeClass('show');
@@ -112,16 +139,25 @@ $(function(){
 	});
 
 	form.on('submit',function(){
-		if((message_type.filter(':checked').length==0)||(email_1.hasClass('bad'))||(email_2.hasClass('bad'))||(email_3.hasClass('bad'))||(email_1.val()=='')){
+		if((message_type.filter(':checked').length==0)||(email_1.hasClass('bad'))||(email_2.hasClass('bad'))||(email_3.hasClass('bad'))||(email_1.val()=='')||(email_4.hasClass('bad'))||(email_4.val()=='')){
 			if(message_type.filter(':checked').length==0){
 				$('.errored').addClass('show');
 			}
 			if(email_1.val()==''){
+				$('.errored.first').addClass('show');
 				email_1.addClass('bad');
 				email_1.focus();
 			}
 			if(email_1.val()!=''){
 				$('.errored.first').removeClass('show');
+			}
+			if(email_4.val()==''){
+				$('.errored.yours').addClass('show');
+				email_4.addClass('bad');
+				email_4.focus();
+			}
+			if(email_4.val()!=''){
+				$('.errored.yours').removeClass('show');
 			}
 			return false;
 		}else{
@@ -136,8 +172,13 @@ $(function(){
 		        success: function(response) {
 		            //alert('funky');
 					setTimeout(function(){
-						form.find('div').css('opacity',1);
 						$('.submitted').removeClass('show');
+						form.find('div').css({
+							'opacity':1,
+							'padding-bottom':'4px'
+						});
+						form.find('div > span:first-child').hide();
+						$('.confirm').fadeIn().css('display','block');
 					}, 1000);
 		        }
 		        /*error: function(response) {
