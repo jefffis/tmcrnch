@@ -178,6 +178,10 @@ fieldset:last-child {
 	border-top:1px solid #efefef;
 	/*background:#f5f4f4;*/
 }
+.rdo h3 {
+	padding:0 0 1em;
+	font-weight:bold;
+}
 fieldset .clr {
 	clear:right;
 	display:none;
@@ -322,14 +326,14 @@ input[type=submit] {
 	padding:.9em 1em 1.05em;
 	/*margin:2px 0 0;*/
 	width:100%;
-	border-top:1px solid #107cb4;
-	background:#1caffc;
-	background:-webkit-gradient(linear, 0 0, 0 bottom, from(#1caffc), to(#107cb4));
-	background:-webkit-linear-gradient(#1caffc, #107cb4);
-	background:-moz-linear-gradient(#1caffc, #107cb4);
-	background:-ms-linear-gradient(#1caffc, #107cb4);
-	background:-o-linear-gradient(#1caffc, #107cb4);
-	background:linear-gradient(#1caffc, #107cb4);
+	border-top:1px solid #b04301;
+	background:#fe7801;
+	background:-webkit-gradient(linear, 0 0, 0 bottom, from(#fe7801), to(#b04301));
+	background:-webkit-linear-gradient(#fe7801, #b04301);
+	background:-moz-linear-gradient(#fe7801, #b04301);
+	background:-ms-linear-gradient(#fe7801, #b04301);
+	background:-o-linear-gradient(#fe7801, #b04301);
+	background:linear-gradient(#fe7801, #b04301);
 	color:white;
 	box-shadow:0 -3px 0 rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.25) inset;
 	border-radius:0 0 3px 3px;
@@ -342,7 +346,7 @@ input[type=submit] {
 }
 input[type=submit]:active {
 	padding:1.05em 1em .95em;
-	background:#107cb4;
+	background:#b04301;
 	color:#b6d6e6;
 	box-shadow:0 1px 3px rgba(0,0,0,0.35) inset, 0 1px 9px rgba(0,0,0,0.2) inset;
 }
