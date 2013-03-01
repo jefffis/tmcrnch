@@ -19,6 +19,9 @@ var sam_message_type = message_type.next('span');
 
 var submit = $('#submit');
 
+var wtf = $('#wtf');
+var wtfs = $('#wtfs');
+
 if (Modernizr.localstorage) {
 	//
 } else {
@@ -26,6 +29,11 @@ if (Modernizr.localstorage) {
 }
 
 $(function(){
+
+	wtfs.on('click',function(){
+		//alert('fefe');
+		wtf.toggleClass('s');
+	});
 
 	// email 1
 	email_1.on('change',function(){
